@@ -1,13 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ubus
+PKG_VERSION:=2018-10-06
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL=$(LEDE_GIT)/project/ubus.git
-PKG_SOURCE_DATE:=2017-02-18
-PKG_SOURCE_VERSION:=34c6e818e431cc53478a0f7c7c1eca07d194d692
-PKG_MIRROR_HASH:=fc4f1121faa4f5b8fa52ee25460b98b2e60e7d245aefa70e7f76c56ce5628fd5
+PKG_SOURCE_URL=http://git.openwrt.org/project/ubus.git
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_VERSION:=221ce7e7ff1bd1a0c9995fa9d32f58e865f7207f
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 CMAKE_INSTALL:=1
 
 PKG_LICENSE:=LGPL-2.1
@@ -47,7 +48,8 @@ define Package/libubus-lua
   TITLE:=Lua binding for the OpenWrt RPC client
 endef
 
-TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
+TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include -flto
+TARGET_LDFLAGS += -flto
 
 CMAKE_OPTIONS = \
 	-DLUAPATH=/usr/lib/lua
