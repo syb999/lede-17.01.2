@@ -1,0 +1,110 @@
+/dts-v1/;
+
+#include "mt7621.dtsi"
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+
+/ {
+	model = "HiWiFi HC5962";
+
+	memory@0 {
+		device_type = "memory";
+		reg = <0x0 0x10000000>;
+	};
+
+	chosen {
+		bootargs = "console=ttyS0,115200";
+	};
+
+	gpio-leds {
+		compatible = "gpio-leds";
+
+		status {
+			label = "hc5962:white:status";
+			gpios = <&gpio0 6 1>;
+		};
+
+		system {
+			label = "hc5962:red:system";
+			gpios = <&gpio0 7 1>;
+		};
+	};
+
+	gpio-keys-polled {
+		compatible = "gpio-keys-polled";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		poll-interval = <20>;
+
+		reset {
+			label = "reset";
+			gpios = <&gpio0 18 0>;
+			linux,code = <KEY_RESTART>;
+		};
+	};
+};
+
+&hsdma {
+	status = "okay";
+};
+
+&nand {
+	status = "okay";
+
+	partition@0 {
+		label = "u-boot";
+		reg = <0x0 0x80000>;
+	};
+
+	partition@80000 {
+		label = "debug";
+		reg = <0x80000 0x80000>;
+	};
+
+	factory: partition@100000 {
+		label = "factory";
+		reg = <0x100000 0x40000>;
+	};
+
+	partition@140000 {
+		label = "kernel";
+		reg = <0x140000 0x200000>;
+	};
+
+	partition@340000 {
+		label = "ubi";
+		reg = <0x340000 0x7c40000>;
+	};
+};
+
+&pcie {
+	status = "okay";
+
+	pcie0 {
+		mt76@0,0 {
+			reg = <0x0000 0 0 0 0>;
+			device_type = "pci";
+			mediatek,mtd-eeprom = <&factory 0x0000>;
+			ieee80211-freq-limit = <2400000 2500000>;
+		};
+	};
+
+	pcie1 {
+		mt76@1,0 {
+			reg = <0x0000 0 0 0 0>;
+			device_type = "pci";
+			mediatek,mtd-eeprom = <&factory 0x8000>;
+			ieee80211-freq-limit = <5000000 6000000>;
+		};
+	};
+};
+
+&pinctrl {
+	state_default: pinctrl0 {
+		gpio {
+			ralink,group = "uart3", "jtag";
+			ralink,function = "gpio";
+		};
+	};
+};

@@ -174,6 +174,9 @@ get_status_led() {
 	newifi-d1)
 		status_led="$board:blue:status"
 		;;
+	newifi-d2)
+		status_led="newifi-d2:blue:power"
+		;;
 	omega2| \
 	omega2p)
 		status_led="$board:amber:system"
@@ -238,6 +241,9 @@ get_status_led() {
 	wsr-1166|\
 	wsr-600)
 		status_led="$board:green:power"
+		;;
+	hc5962)
+		status_led="$board:white:status"
 		;;
 	wrtnode2r | \
 	wrtnode2p | \

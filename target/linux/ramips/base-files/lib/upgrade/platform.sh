@@ -101,6 +101,7 @@ platform_check_image() {
 	nbg-419n|\
 	nbg-419n2|\
 	newifi-d1|\
+	newifi-d2|\
 	nixcore|\
 	nw718|\
 	omega2|\
@@ -179,6 +180,7 @@ platform_check_image() {
 	zbt-cpe102|\
 	zbt-wa05|\
 	zbt-we826|\
+	zbt-we1326|\
 	zbt-wg2626|\
 	zbt-wg3526|\
 	zbt-wr8305rt|\
@@ -233,6 +235,10 @@ platform_check_image() {
 			return 1
 		}
 		return 0
+		;;
+	hc5962)
+		nand_do_platform_check "$board" "$1"
+		return $?;
 		;;
 	ubnt-erx)
 		nand_do_platform_check "$board" "$1"

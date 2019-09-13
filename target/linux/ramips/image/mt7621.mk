@@ -79,6 +79,21 @@ define Device/mt7621
 endef
 TARGET_DEVICES += mt7621
 
+define Device/hc5962
+  DTS := HC5962
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 2097152
+  UBINIZE_OPTS := -E 5
+  IMAGE_SIZE := $(ralink_default_fw_size_32M)
+  IMAGES += factory.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | check-size $$$$(IMAGE_SIZE)
+  DEVICE_TITLE := HiWiFi HC5962
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 wpad-mini
+endef
+TARGET_DEVICES += hc5962
+
 define Device/newifi-d1
   DTS := Newifi-D1
   IMAGE_SIZE := $(ralink_default_fw_size_32M)
@@ -86,6 +101,14 @@ define Device/newifi-d1
   DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
 endef
 TARGET_DEVICES += newifi-d1
+
+define Device/newifi-d2
+  DTS := Newifi-D2
+  IMAGE_SIZE := $(ralink_default_fw_size_32M)
+  DEVICE_TITLE := Newifi D2
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += newifi-d2
 
 define Device/pbr-m1
   DTS := PBR-M1
@@ -204,6 +227,14 @@ define Device/wsr-600
   DEVICE_TITLE := Buffalo WSR-600
 endef
 TARGET_DEVICES += wsr-600
+
+define Device/zbt-we1326
+  DTS := ZBT-WE1326
+  IMAGE_SIZE := $(ralink_default_fw_size_16M)
+  DEVICE_TITLE := ZBT WE1326
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-ata-core kmod-ata-ahci
+endef
+TARGET_DEVICES += zbt-we1326
 
 define Device/zbt-wg2626
   DTS := ZBT-WG2626

@@ -352,8 +352,14 @@ ramips_board_detect() {
 	*"NBG-419N v2")
 		name="nbg-419n2"
 		;;
+	*"HC5962")
+		name="hc5962"
+		;;
 	*"Newifi-D1")
 		name="newifi-d1"
+		;;
+	*"Newifi-D2")
+		name="newifi-d2"
 		;;
 	*"NCS601W")
 		name="ncs601w"
@@ -630,6 +636,9 @@ ramips_board_detect() {
 		;;
 	*"ZBT-WE826")
 		name="zbt-we826"
+		;;
+	*"ZBT-WE1326")
+		name="zbt-we1326"
 		;;
 	*"ZBT-WG2626")
 		name="zbt-wg2626"
