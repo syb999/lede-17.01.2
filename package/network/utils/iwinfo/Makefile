@@ -7,13 +7,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libiwinfo
+PKG_VERSION:=2019-05-21
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL=$(LEDE_GIT)/project/iwinfo.git
-PKG_SOURCE_DATE:=2016-09-21
-PKG_SOURCE_VERSION:=fd9e17be0c43bd6b8df5371f0b353747bc563874
-PKG_MIRROR_HASH:=c58490d9b5c2179f6a3edc67aae2f00ae6007daee0d52fa7e5b4c0ea923f1e37
+PKG_SOURCE_URL=http://git.openwrt.org/project/iwinfo.git
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_VERSION:=073a838891e58fdf6b893032113ead1d003dc7e4
+PKG_MIRROR_HASH:=47f25a330826e82ee077d3d6a606c4a2c9bb45a14abd06b105c329fbcdca2687
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MAINTAINER:=Jo-Philipp Wich <jo@mein.io>
 PKG_LICENSE:=GPL-2.0
 
@@ -32,8 +34,8 @@ define Package/libiwinfo
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=Generalized Wireless Information Library (iwinfo)
-  DEPENDS:=+PACKAGE_kmod-cfg80211:libnl-tiny +libuci
-  ABI_VERSION:=$(PKG_RELEASE)
+  DEPENDS:=+PACKAGE_kmod-cfg80211:libnl-tiny +libuci +libubus
+  ABI_VERSION:=20181126
 endef
 
 define Package/libiwinfo/description
