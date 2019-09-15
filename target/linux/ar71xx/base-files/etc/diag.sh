@@ -204,6 +204,9 @@ get_status_led() {
 	k2t)
 		status_led="$board:red:lan"
 		;;
+	csac)
+		status_led="$board:green:status"
+		;;
 	ls-sr71)
 		status_led="ubnt:green:d22"
 		;;

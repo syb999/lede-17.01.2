@@ -551,6 +551,14 @@ platform_check_image() {
 
 		return 0
 		;;
+	csac)
+		[ "$magic_long" != "68737173" -a "$magic_long" != "19852003" ] && {
+			echo "Invalid image type."
+			return 1
+		}
+
+		return 0
+		;;
 	nbg6616|\
 	uap-pro|\
 	unifi-outdoor-plus)

@@ -159,6 +159,10 @@ ar71xx_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"0@eth0" "3:lan:1" "5:lan:2" "4:wan"
 		;;
+	csac)
+		ucidef_add_switch "switch0" \
+			"0@eth0" "2:lan" "3:lan" "4:lan" "5:lan" "1:wan"
+		;;
 	ap132|\
 	ap136|\
 	ap152|\
