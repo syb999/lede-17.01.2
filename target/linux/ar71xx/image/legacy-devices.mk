@@ -117,7 +117,7 @@ LEGACY_DEVICES += AP152_16M
 
 define LegacyDevice/CSACIII_16M
   DEVICE_TITLE := CASC-III board (16MB flash)
-  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca9888-ct
+  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca988x-ct
 endef
 LEGACY_DEVICES += CSACIII_16M
 
