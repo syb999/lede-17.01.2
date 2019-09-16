@@ -201,11 +201,11 @@ get_status_led() {
 	jwap230)
 		status_led="$board:green:led1"
 		;;
+	csac-iii)
+		status_led="$board:green:status"
+		;;
 	k2t)
 		status_led="$board:red:lan"
-		;;
-	csac)
-		status_led="$board:green:status"
 		;;
 	ls-sr71)
 		status_led="ubnt:green:d22"

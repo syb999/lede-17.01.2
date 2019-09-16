@@ -1869,8 +1869,8 @@ config ATH79_MACH_K2T
 	select ATH79_DEV_WMAC
 	select ATH79_DEV_AP9X_PCI if PCI
 
-config ATH79_MACH_CSAC
-	bool "CSAC board"
+config ATH79_MACH_CSAC_III
+	bool "CSAC-III board support"
 	select SOC_QCA956X
 	select ATH79_DEV_ETH
 	select ATH79_DEV_GPIO_BUTTONS
@@ -1879,3 +1879,4 @@ config ATH79_MACH_CSAC
 	select ATH79_DEV_USB
 	select ATH79_DEV_WMAC
 	select ATH79_DEV_AP9X_PCI if PCI
+

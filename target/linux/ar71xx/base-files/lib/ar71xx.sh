@@ -781,13 +781,13 @@ ar71xx_board_detect() {
 	*"Onion Omega")
 		name="onion-omega"
 		;;
+	*"CSAC-III board")
+		name="csac-iii"
+		;;
 	*"K2T A1/A2/A3 board")
 		#fixup: update the machine name
 		machine=$(echo -n "$machine" | sed "s,A1/A2/A3,$(head -c400 $(find_mtd_chardev config) | grep -o hw_ver.* | cut -d\" -f3),")
 		name="k2t"
-		;;
-	*CSAC)
-		name="csac"
 		;;
 	*PB42)
 		name="pb42"
