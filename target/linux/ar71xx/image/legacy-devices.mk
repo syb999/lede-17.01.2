@@ -117,7 +117,7 @@ LEGACY_DEVICES += AP152_16M
 
 define LegacyDevice/CSAC_16M
   DEVICE_TITLE := CSAC
-  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca9888
+  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca9888-ct
 endef
 LEGACY_DEVICES += CSAC_16M
 
