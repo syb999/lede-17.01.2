@@ -115,11 +115,11 @@ define LegacyDevice/AP152_16M
 endef
 LEGACY_DEVICES += AP152_16M
 
-define LegacyDevice/CSACIII_16M
-  DEVICE_TITLE := CASC-III board (16MB flash)
-  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca988x-ct
+define LegacyDevice/CSAC_16M
+  DEVICE_TITLE := CSAC
+  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca9888
 endef
-LEGACY_DEVICES += CSACIII_16M
+LEGACY_DEVICES += CSAC_16M
 
 define LegacyDevice/BXU2000N2
   DEVICE_TITLE := BHU BXU2000n-2

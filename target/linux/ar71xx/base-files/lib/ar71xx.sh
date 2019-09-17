@@ -454,6 +454,9 @@ ar71xx_board_detect() {
 	*"AP152 reference board")
 		name="ap152"
 		;;
+	*"CSAC reference board")
+		name="csac"
+		;;
 	*AP90Q)
 		name="ap90q"
 		;;
@@ -780,9 +783,6 @@ ar71xx_board_detect() {
 		;;
 	*"Onion Omega")
 		name="onion-omega"
-		;;
-	*"CSAC-III board")
-		name="csac-iii"
 		;;
 	*"K2T A1/A2/A3 board")
 		#fixup: update the machine name

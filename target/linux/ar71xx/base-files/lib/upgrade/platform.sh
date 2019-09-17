@@ -543,7 +543,7 @@ platform_check_image() {
 		cybertan_check_image "$1" && return 0
 		return 1
 		;;
-	csac-iii)
+	csac)
 		[ "$magic_long" != "68737173" -a "$magic_long" != "19852003" ] && {
 			echo "Invalid image type."
 			return 1

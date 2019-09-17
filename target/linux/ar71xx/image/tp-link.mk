@@ -580,7 +580,7 @@ define Device/tl-wr743nd-v1
 endef
 
 define Device/tl-wr743nd-v2
-    $(Device/tplink-4mlzma)
+    $(Device/tplink-8mlzma)
     DEVICE_TITLE := TP-LINK TL-WR743N/ND v2
     BOARDNAME := TL-WR741ND-v4
     DEVICE_PROFILE := TLWR743
