@@ -607,7 +607,7 @@ define Package/ath10k-firmware-qca9888-ct-htt/install
 endef
 
 #$(eval $(call BuildPackage,ath10k-firmware-qca9887))
-#$(eval $(call BuildPackage,ath10k-firmware-qca9888))
+$(eval $(call BuildPackage,ath10k-firmware-qca9888))
 #$(eval $(call BuildPackage,ath10k-firmware-qca988x))
 #$(eval $(call BuildPackage,ath10k-firmware-qca99x0))
 #$(eval $(call BuildPackage,ath10k-firmware-qca6174))
