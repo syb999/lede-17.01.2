@@ -36,7 +36,7 @@ static struct gpio_led csac_leds_gpio[] __initdata = {
 	{
 		.name		= "csac:green:status",
 		.gpio		= CSAC_GPIO_LED_STATUS,
-		.active_low	= 0,
+		.active_low	= 1,
 	},
 	{
 		.name		= "csac:green:wlan-2g",
