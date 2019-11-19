@@ -1,0 +1,19 @@
+diff --git a/timekeeping.h b/timekeeping.h
+index 7187153..a0a02d0 100644
+--- a/backport-include/linux/timekeeping.h
++++ b/backport-include/linux/timekeeping.h
+@@ -81,14 +81,7 @@ static inline struct timespec64 timespec_to_timespec64(const struct timespec ts)
+ #define ktime_get_raw_ts64 LINUX_BACKPORT(ktime_get_raw_ts64)
+ static inline void ktime_get_raw_ts64(struct timespec64 *ts)
+ {
+-#if LINUX_VERSION_IS_LESS(3,19,0)
+-	struct timespec64 ts64;
+-
+-	getrawmonotonic(&ts64);
+-	*ts = timespec_to_timespec64(ts64);
+-#else
+ 	return getrawmonotonic64(ts);
+-#endif /* < 3.19 */
+ }
+ #endif
+ 
