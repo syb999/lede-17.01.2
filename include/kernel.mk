@@ -218,6 +218,7 @@ $(call KernelPackage/$(1)/config)
   endif
 
   $(call KernelPackage/depends)
+  $(call KernelPackage/hooks)
 
   ifneq ($(if $(filter-out %=y %=n %=m,$(KCONFIG)),$(filter m y,$(foreach c,$(filter-out %=y %=n %=m,$(KCONFIG)),$($(c)))),.),)
     ifneq ($(strip $(FILES)),)
