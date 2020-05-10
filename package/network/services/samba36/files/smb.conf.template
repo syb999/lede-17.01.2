@@ -25,4 +25,4 @@
 	syslog = 2
 	use sendfile = yes
 	writeable = yes
-	bind interfaces only = yes
+	bind interfaces only = no
